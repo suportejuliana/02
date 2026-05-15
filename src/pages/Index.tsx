@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { captureUtms } from "@/lib/utmify";
 import TopBar from "@/components/sales/TopBar";
 import HeroProduct from "@/components/sales/HeroProduct";
 import TrustBadges from "@/components/sales/TrustBadges";
@@ -13,23 +15,27 @@ import FinalCTA from "@/components/sales/FinalCTA";
 import Footer from "@/components/sales/Footer";
 import StickyCart from "@/components/sales/StickyCart";
 
-const Index = () => (
-  <div className="min-h-screen bg-background max-w-[768px] mx-auto">
-    <TopBar />
-    <HeroProduct />
-    <TrustBadges />
-    <PainPoints />
-    <Benefits />
-    <Ingredients />
-    <PricingKits />
-    <Testimonials />
-    <UrgencyBanner />
-    <Guarantees />
-    <FAQ />
-    <FinalCTA />
-    <Footer />
-    <StickyCart />
-  </div>
-);
+const Index = () => {
+  useEffect(() => { captureUtms(); }, []);
+
+  return (
+    <div className="min-h-screen bg-background max-w-[768px] mx-auto">
+      <TopBar />
+      <HeroProduct />
+      <TrustBadges />
+      <PainPoints />
+      <Benefits />
+      <Ingredients />
+      <PricingKits />
+      <Testimonials />
+      <UrgencyBanner />
+      <Guarantees />
+      <FAQ />
+      <FinalCTA />
+      <Footer />
+      <StickyCart />
+    </div>
+  );
+};
 
 export default Index;
